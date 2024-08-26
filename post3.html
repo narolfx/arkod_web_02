@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>360 Product View - Post 1</title>
+    <link rel="stylesheet" href="css/post-page.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/360viewer.js"></script>
+</head>
+<body>
+    <!-- Logo and Home Button (Fixed at the Top) -->
+    <div class="fixed-top">
+        <div class="logo">
+            <!-- Updated image path -->
+            <img src="assets/icons/logo.png" alt="Logo">
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-icon">
+                <img src="assets/icons/home-icon.png" alt="Home Icon">
+            </a>
+        </nav>
+    </div>
+
+    <!-- Main Content for 360 Product View -->
+    <main class="main-content">
+        <div class="product-view-container">
+            <div id="viewer-images-1" class="viewer-images"></div> <!-- Container for 360 images -->
+            <div class="slider-container">
+                <input type="range" class="rotation-slider" min="0" max="60" value="0">
+            </div>
+        </div>
+        
+        <!-- Description Text Below the Image -->
+        <div class="description-container" id="description">
+            <p>Project name<br><strong>Sømærket</strong></p>
+            <p>Typology<br><strong>Educational</strong></p>
+            <p>Location<br><strong>Lillebælt Naturpark</strong></p>
+            <p>Year<br><strong>2024</strong></p>
+            <p>Status<br><strong>1st Prize</strong></p>
+            <p>Size<br><strong>250 m²</strong></p>
+            <p>Client<br><strong>Lillebælt Naturpark</strong></p>
+            <p>Design team<br><strong>Tue Hesselberg Foged, Oscar Elfving, Emil Engelbrecht, Marshall Blecher, Kasper Bovin</strong></p>
+            <p>Collaborators<br><strong>Mast, NBC Marine and DAS BOOT</strong></p>
+        </div>
+    </main>
+</body>
+</html>
