@@ -6,6 +6,16 @@ $(document).ready(function() {
             path: 'assets/images/post1/', // Path to the images for Post 1
             containerId: '#viewer-images-1', // ID of the container where images will be loaded
         },
+  "Post 2": {
+            imageCount: 61, // Total number of images
+            path: 'assets/images/post2/', // Path to the images for Post 2
+            containerId: '#viewer-images-2', // ID of the container where images will be loaded
+           },
+"Post 3": {
+            imageCount: 61, // Total number of images
+            path: 'assets/images/post3/', // Path to the images for Post 3
+            containerId: '#viewer-images-3', // ID of the container where images will be loaded
+           },
         // Add configurations for Post 2, Post 3 if needed
     };
 
@@ -22,14 +32,47 @@ $(document).ready(function() {
             viewer.append(imgElement);
         }
         viewer.find('img').first().show(); // Show the first image initially
+        adjustImageSizes(); // Adjust image sizes after loading
     }
 
-    // Function to rotate images based on slider value
-    function rotateBySlider(viewer, value) {
-        const images = viewer.find('img');
-        images.hide(); // Hide all images
-        images.eq(value).show(); // Show the image corresponding to slider value
+    // Function to adjust image sizes dynamically based on the viewport
+    function adjustImageSizes() {
+        const viewportWidth = window.innerWidth;
+        const viewportHeight = window.innerHeight;
+        const isPortrait = window.matchMedia("(orientation: portrait)").matches;
+
+        $('.product-view-container').each(function() {
+            if (viewportWidth >= 768) { // Desktop or Tablet view
+                $(this).css({
+                    width: '100vw',  // Full viewport width
+                    height: '100vh', // Full viewport height
+                });
+
+                $(this).find('img').css({
+                    width: '100vw',   // Full viewport width
+                    height: '100vh',  // Full viewport height
+                    objectFit: 'cover' // Cover the entire container while maintaining aspect ratio
+                });
+            } else { // Mobile view
+                $(this).css({
+                    width: '100%',  // Full width of container
+                    height: 'auto', // Height adjusts automatically based on width
+                });
+
+                $(this).find('img').css({
+                    width: isPortrait ? '100%' : 'auto', // Full width for portrait, auto for landscape
+                    height: 'auto', // Maintain aspect ratio
+                    maxWidth: '100%', // Ensure it doesn't overflow container
+                    maxHeight: '100%', // Ensure it doesn't overflow container
+                });
+            }
+        });
     }
+
+    // Call adjustImageSizes on window resize and orientation change
+    $(window).on('resize orientationchange', function() {
+        adjustImageSizes();
+    });
 
     // Initialize viewers for all posts
     Object.keys(posts).forEach(postName => {
@@ -42,6 +85,13 @@ $(document).ready(function() {
         const value = $(this).val();
         rotateBySlider(viewer, value);
     });
+
+    // Function to rotate images based on slider value
+    function rotateBySlider(viewer, value) {
+        const images = viewer.find('img');
+        images.hide(); // Hide all images
+        images.eq(value).show(); // Show the image corresponding to slider value
+    }
 
     // Variables for handling touch and mouse events
     let startX, isTouching = false, isDragging = false;
