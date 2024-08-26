@@ -1,0 +1,102 @@
+/* Reset and basic styling for main page */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+/* Sticky Header styling */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    z-index: 1000;
+    box-sizing: border-box; /* Ensure padding is included in the width calculation */
+}
+
+.logo img {
+    width: 100px; /* Adjust size as needed */
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    display: block;
+    width: 24px; /* Adjust size to fit within margins */
+    height: 24px;
+    text-decoration: none;
+    margin-left: auto; /* Align icon to the right edge */
+    margin-right: 10px; /* Add margin to the right for spacing */
+}
+
+.nav-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Main content styling for grid layout */
+.main-content {
+    padding-top: 70px; /* Space for the fixed header */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 20px;
+    box-sizing: border-box; /* Include padding and border in width calculation */
+}
+
+/* Responsive Grid Container */
+.grid-container {
+    display: grid;
+    gap: 20px; /* Spacing between grid items */
+    width: 100%; /* Full width of the page */
+    padding: 20px; /* Padding for spacing */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    grid-template-columns: repeat(3, 1fr); /* Default to 3 columns for larger screens */
+}
+
+/* Grid items styling */
+.grid-item {
+    background-color: #fff; /* Match background color to the site */
+    position: relative;
+    overflow: hidden;
+    width: 100%; /* Make grid items responsive */
+    padding-top: 100%; /* Maintain square aspect ratio */
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.grid-item img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure image covers the container while maintaining aspect ratio */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 992px) {
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for smaller screens */
+    }
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* 1 column for mobile devices */
+    }
+}

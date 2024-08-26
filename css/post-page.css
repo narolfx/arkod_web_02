@@ -1,0 +1,127 @@
+/* Basic reset for full-screen display */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
+}
+
+/* Fixed Top Elements for Logo and Button */
+.fixed-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 100px; /* Adjust size as needed */
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    display: block;
+    width: 24px; /* Adjust size to fit within margins */
+    height: 24px;
+    text-decoration: none;
+    margin-left: auto; /* Align icon to the right edge */
+    margin-right: 10px; /* Add margin to the right for spacing */
+}
+
+.nav-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Main content styling for full-page image */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto; /* Height should be auto to allow content to flow */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    overflow: visible; /* Allow content to overflow for scrolling */
+}
+
+/* 360 Product View styling for full-screen image */
+.product-view-container {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-view-container img {
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: cover; /* Cover entire container while maintaining aspect ratio */
+    user-select: none; /* Prevent image selection during drag */
+}
+
+/* Slider styling - positioned at the bottom center above the image */
+.slider-container {
+    width: 200px; /* Smaller width for the slider */
+    position: absolute;
+    bottom: 20px; /* Position above the bottom of the container */
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    z-index: 1001; /* Ensure the slider is above the image */
+}
+
+.rotation-slider {
+    width: 100%; /* Full width of the slider container */
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for visibility */
+    border-radius: 5px; /* Rounded corners */
+}
+
+/* Text description styling */
+.description-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto; /* Center the description container */
+    color: #000; /* Black text color */
+    padding: 20px;
+    font-size: 14px; /* Default font size */
+    font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    border-radius: 8px; /* Rounded corners */
+    text-align: left;
+    line-height: 1.6; /* Line height for readability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1001; /* Ensure the description is above the image */
+    margin-top: 20px; /* Add spacing from the image */
+}
+
+/* Responsive text size adjustments */
+@media (min-width: 768px) {
+    .description-container {
+        font-size: 16px; /* Larger font size for tablets and desktops */
+    }
+}
+
+@media (min-width: 992px) {
+    .description-container {
+        font-size: 18px; /* Even larger font size for larger screens */
+    }
+}
