@@ -78,19 +78,19 @@ body, html {
     user-select: none; /* Prevent image selection during drag */
 }
 
-/* Slider styling - positioned at the bottom center above the image */
+/* Slider styling - position controlled dynamically by JavaScript */
 .slider-container {
     width: 200px; /* Set a fixed width for the slider */
     position: absolute; /* Position the slider absolutely within the container */
-    bottom: 20px; /* Keep the slider at the bottom of the container */
     left: 50%; /* Center the slider horizontally */
     transform: translateX(-50%); /* Adjust position to be perfectly centered */
     display: flex;
     justify-content: center;
     z-index: 1001; /* Ensure the slider is above the image */
-    background: /* rgba(255, 255, 255, 0.8)*/; /* Semi-transparent background for visibility */
+    background:/* rgba(255, 255, 255, 0.8)*/; /* Semi-transparent background for visibility */
     border-radius: 5px; /* Rounded corners */
     padding: 5px; /* Add some padding for better touch area */
+    bottom: 2%; /* Default to bottom, overridden by JavaScript */
 }
 
 .rotation-slider {
