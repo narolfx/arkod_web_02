@@ -1,0 +1,122 @@
+/* General Styling */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff;
+    color: #333;
+}
+
+/* Header Styling - Consistent with Other Pages */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: /* rgba(255, 255, 255, 0.8);*/
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.logo img {
+    width: 100px; /* Adjust size as needed */
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+}
+
+.nav-icon {
+    display: block;
+    width: 24px; /* Adjust size to fit within margins */
+    height: 24px;
+    text-decoration: none;
+    margin-left: auto; /* Align icon to the right edge */
+    margin-right: 10px; /* Add margin to the right for spacing */
+}
+
+.nav-icon img {
+    width: 100%;
+    height: auto;
+}
+
+/* Top Section: Philosophy */
+.philosophy-section {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f0f0f0;
+    margin-top: 70px; /* Space for the fixed header */
+}
+
+.philosophy-section h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.philosophy-section p {
+    font-size: 18px;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Middle Section: Team */
+.team-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.team-section h2 {
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.team-member {
+    width: 300px;
+    text-align: center;
+}
+
+.team-member img {
+    width: 100%;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+.team-member h3 {
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.team-member p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+/* Bottom Section: Contact */
+.contact-section {
+    padding: 40px 20px;
+    text-align: center;
+    background-color: #e0e0e0;
+}
+
+.contact-section h2 {
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.contact-section p {
+    font-size: 18px;
+    line-height: 1.6;
+}
