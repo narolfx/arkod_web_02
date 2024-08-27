@@ -1,3 +1,19 @@
+// Force landscape orientation on mobile devices
+function forceLandscapeMode() {
+    if (window.innerHeight > window.innerWidth) {
+        alert("Please rotate your device to landscape mode for a better experience.");
+    }
+}
+
+// Call the function on load and on resize
+$(document).ready(function() {
+    forceLandscapeMode();
+    $(window).on('resize orientationchange', function() {
+        forceLandscapeMode();
+    });
+});
+
+// Existing code starts here
 $(document).ready(function() {
     // Configuration for each post's images
     const posts = {
@@ -13,8 +29,7 @@ $(document).ready(function() {
            },
 "Post 3": {
             imageCount: 61, // Total number of images
-            path: 'assets/images/post3/', // Path to the images for Post 3
-            containerId: '#viewer-images-3', // ID of the container where images will be loaded
+            path: 'assets/images/post3/', // ID of the container where images will be loaded
            },
         // Add configurations for Post 2, Post 3 if needed
     };
