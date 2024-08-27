@@ -2,51 +2,72 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>360 Product View - Post 1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>360 Product View - Post 6</title>
     <link rel="stylesheet" href="css/post-page.css">
+    <link rel="stylesheet" href="css/popup.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="js/360viewer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="js/imageLoader.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/touchAndMouse.js"></script>
+    <script src="js/popup.js"></script>
 </head>
-
 <body>
-    <!-- Logo and Home Button (Fixed at the Top) -->
-    <div class="fixed-top">
-    <div class="logo">
-        <!-- Make the logo clickable -->
-        <a href="about.html">
-            <img src="assets/icons/logo.png" alt="Logo">
-        </a>
+    <!-- Rotate message for portrait mode -->
+    <div class="rotate-message">
+        <img src="assets/icons/rotate-icon.png" alt="Rotate Icon" style="width: 50px; height: 50px; margin-bottom: 20px;">
+        Please rotate your device to landscape mode for the best viewing experience.
     </div>
-    <nav class="navigation">
-        <a href="index.html" class="nav-icon">
-            <img src="assets/icons/home-icon.png" alt="Home Icon">
-        </a>
-    </nav>
-</div>
 
+    <!-- Main content area, hidden in portrait mode -->
+    <div class="landscape-content">
+        <!-- Logo and Home Button (Fixed at the Top) -->
+        <div class="fixed-top">
+            <div class="logo">
+                <a href="about.html">
+                    <img src="assets/icons/logo.png" alt="Logo">
+                </a>
+            </div>
+            <nav class="navigation">
+                <a href="index.html" class="nav-icon">
+                    <img src="assets/icons/home-icon.png" alt="Home Icon">
+                </a>
+            </nav>
+        </div>
 
-    <!-- Main Content for 360 Product View -->
-    <main class="main-content">
-        <div class="product-view-container">
-            <div id="viewer-images-1" class="viewer-images"></div> <!-- Container for 360 images -->
+        <!-- 3D Product View Container -->
+        <main class="main-content">
+            <div class="product-view-container" id="viewer-images-6"></div>
             <div class="slider-container">
                 <input type="range" class="rotation-slider" min="0" max="60" value="0">
             </div>
+
+            <!-- Hotspot Button for Information Popup -->
+            <button id="info-hotspot" class="info-hotspot">i</button>
+
+            <!-- Navigation Arrows for switching between projects -->
+            <div class="nav-arrow left" id="nav-left">&#8249;</div>
+            <div class="nav-arrow right" id="nav-right">&#8250;</div>
+        </main>
+    </div>
+
+    <!-- Modal/Popup for Project Information -->
+    <div id="info-popup" class="info-popup">
+        <div class="popup-content">
+            <span class="close-popup">&times;</span>
+            <div class="description-container">
+                <p>Project name<br><strong>Project 6 Name</strong></p>
+                <p>Typology<br><strong>Industrial</strong></p>
+                <p>Location<br><strong>Industrial Park</strong></p>
+                <p>Year<br><strong>2023</strong></p>
+                <p>Status<br><strong>Completed</strong></p>
+                <p>Size<br><strong>700 m²</strong></p>
+                <p>Client<br><strong>Manufacturing Co.</strong></p>
+                <p>Design team<br><strong>Team Industrial</strong></p>
+                <p>Collaborators<br><strong>Engineering Firm</strong></p>
+            </div>
         </div>
-        
-        <!-- Description Text Below the Image -->
-        <div class="description-container" id="description">
-            <p>Project name<br><strong>Sømærket</strong></p>
-            <p>Typology<br><strong>Educational</strong></p>
-            <p>Location<br><strong>Lillebælt Naturpark</strong></p>
-            <p>Year<br><strong>2024</strong></p>
-            <p>Status<br><strong>1st Prize</strong></p>
-            <p>Size<br><strong>250 m²</strong></p>
-            <p>Client<br><strong>Lillebælt Naturpark</strong></p>
-            <p>Design team<br><strong>Tue Hesselberg Foged, Oscar Elfving, Emil Engelbrecht, Marshall Blecher, Kasper Bovin</strong></p>
-            <p>Collaborators<br><strong>Mast, NBC Marine and DAS BOOT</strong></p>
-        </div>
-    </main>
+    </div>
 </body>
 </html>
