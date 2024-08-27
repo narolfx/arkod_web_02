@@ -7,17 +7,17 @@
     bottom: 30px; /* Adjust the position as needed */
     right: 30px;  /* Adjust the position as needed */
     background-color: transparent; /* Transparent background color */
-    border: 2px solid black; /* Circular border around the icon */
+    border: 1.5px solid black; /* Circular border around the icon */
     color: black; /* Text color set to black */
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 20px;
+    font-size: scale  ;
     border-radius: 50%; /* Makes the button circular */
     cursor: pointer;
     z-index: 1500;
-    width: 50px; /* Set initial width */
-    height: 50px; /* Set initial height */
+    width: 50px  ; /* Set initial width */
+    height: 50px ; /* Set initial height */
     line-height: 45px; /* Center the icon vertically */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effect */
 }
@@ -42,8 +42,8 @@
     background-color: /* rgba(0, 0, 0, 0.7) */ ; /* Black background with opacity */
     justify-content: center;
     align-items: center;
-    width: 50%; /* Allow content to define width */
-    height: auto; /* Allow content to define height */
+    width:    50% ; /* Allow content to define width */
+    height:   50% ; /* Allow content to define height */
     overflow-y: auto; /* Allow scrolling if content is too large */
      
 }
@@ -67,13 +67,13 @@
         width: 40px; /* Adjust width for tablets and smaller screens */
         height: 40px; /* Adjust height for tablets and smaller screens */
         line-height: 35px; /* Adjust line height to center the icon */
-        font-size: 18px; /* Smaller font size for smaller screens */
+        font-size: 5px; /* Smaller font size for smaller screens */
         bottom: 20px; /* Adjust bottom position */
         right: 20px; /* Adjust right position */
     }
 
     .popup-content {
-        width: 90%; /* Adjust width for smaller screens */
+        width: 50%; /* Adjust width for smaller screens */
         padding: 15px; /* Adjust padding for smaller screens */
     }
 }
@@ -83,13 +83,13 @@
         width: 30px; /* Further adjust width for small screens */
         height: 30px; /* Further adjust height for small screens */
         line-height: 28px; /* Further adjust line height to center the icon */
-        font-size: 16px; /* Smaller font size for small screens */
+        font-size: 5px; /* Smaller font size for small screens */
         bottom: 15px; /* Further adjust bottom position */
         right: 15px; /* Further adjust right position */
     }
 
     .popup-content {
-        width: 95%; /* Further adjust width for smaller screens */
+        width: 50%; /* Further adjust width for smaller screens */
         padding: 10px; /* Further adjust padding for smaller screens */
     }
 }
