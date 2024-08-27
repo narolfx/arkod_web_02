@@ -14,38 +14,35 @@
     <script src="js/popup.js"></script> <!-- Handles pop-up functionality -->
 </head>
 <body>
-   
 
-  
-        <!-- Logo and Home Button (Fixed at the Top) -->
-        <div class="fixed-top">
-            <div class="logo">
-                <a href="about.html">
-                    <img src="assets/icons/logo.png" alt="Logo">
-                </a>
-            </div>
-            <nav class="navigation">
-                <a href="index.html" class="nav-icon">
-                    <img src="assets/icons/home-icon.png" alt="Home Icon">
-                </a>
-            </nav>
+    <!-- Logo and Home Button (Fixed at the Top) -->
+    <div class="fixed-top">
+        <div class="logo">
+            <a href="about.html">
+                <img src="assets/icons/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-icon">
+                <img src="assets/icons/home-icon.png" alt="Home Icon">
+            </a>
+        </nav>
+    </div>
+
+    <!-- 3D Product View Container -->
+    <main class="main-content">
+        <div class="product-view-container" id="viewer-images-1"></div>
+        <div class="slider-container">
+            <input type="range" class="rotation-slider" min="0" max="60" value="0">
         </div>
 
-        <!-- 3D Product View Container -->
-        <main class="main-content">
-            <div class="product-view-container" id="viewer-images-1"></div>
-            <div class="slider-container">
-                <input type="range" class="rotation-slider" min="0" max="60" value="0">
-            </div>
+        <!-- Hotspot Button for Information Popup -->
+        <button id="info-hotspot" class="info-hotspot">i</button>
 
-            <!-- Hotspot Button for Information Popup -->
-            <button id="info-hotspot" class="info-hotspot">i</button>
-
-            <!-- Navigation Arrows for switching between projects -->
-            <div class="nav-arrow left" id="nav-left">&#8249;</div>
-            <div class="nav-arrow right" id="nav-right">&#8250;</div>
-        </main>
-    </div>
+        <!-- Navigation Arrows for switching between projects -->
+        <div class="nav-arrow left" id="nav-left">&#8249;</div>
+        <div class="nav-arrow right" id="nav-right">&#8250;</div>
+    </main>
 
     <!-- Modal/Popup for Project Information -->
     <div id="info-popup" class="info-popup">
@@ -64,5 +61,11 @@
             </div>
         </div>
     </div>
+
+    <!-- Rotation Icon (Add this part) -->
+    <div class="rotation-icon">
+        <img src="assets/icons/rotate-icon.png" alt="Rotate Device">
+    </div>
+
 </body>
 </html>
