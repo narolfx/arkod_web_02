@@ -5,13 +5,7 @@ function forceLandscapeMode() {
     }
 }
 
-// Call the function on load and on resize
-$(document).ready(function() {
-    forceLandscapeMode();
-    $(window).on('resize orientationchange', function() {
-        forceLandscapeMode();
-    });
-});
+
 
 // Existing code starts here
 $(document).ready(function() {
