@@ -47,6 +47,10 @@ $(document).ready(function () {
             viewer.append(imgElement);
         }
         viewer.find('img').first().show(); // Show the first image initially
+        
+        // Set the slider's max attribute to the number of images minus one
+        viewer.siblings('.slider-container').find('.rotation-slider').attr('max', imageCount - 1);
+
         adjustImageSizes(); // Adjust image sizes after loading
     }
 

@@ -1,7 +1,5 @@
-// touchAndMouse.js
-
 $(document).ready(function () {
-    // Variables for handling touch and mouse events
+    // Variables for handling touch, mouse events, and slider
     let startX, isTouching = false, isDragging = false;
     let currentIndex = 0;
 
@@ -67,7 +65,16 @@ $(document).ready(function () {
     });
 
     // Prevent image dragging behavior
-    $('.viewer-images img').on('dragstart', function (event) {
+    $('.product-view-container img').on('dragstart', function (event) {
         event.preventDefault();
+    });
+
+    // Handle slider input for manual rotation
+    $('.rotation-slider').on('input', function () {
+        const sliderValue = $(this).val();
+        const viewer = $(this).closest('.main-content').find('.product-view-container');
+        currentIndex = sliderValue; // Update current index based on slider value
+        viewer.find('img').hide();
+        viewer.find('img').eq(currentIndex).show(); // Show the selected image
     });
 });

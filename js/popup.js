@@ -10,9 +10,12 @@ $(document).ready(function () {
         $('#info-popup').fadeOut();
     });
 
-    $(window).on('click', function (event) {
-        if ($(event.target).is('#info-popup')) {
-            $('#info-popup').fadeOut();
+    // Close the pop-up when clicking outside the pop-up content
+    $(document).on('click', function (event) {
+        if (!$(event.target).closest('.popup-content').length && !$(event.target).is('#info-hotspot')) {
+            $('#info-popup').fadeOut(function() {
+                
+            });
         }
     });
 });
