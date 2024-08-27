@@ -1,12 +1,11 @@
-/* Existing styles in post-page.css */
-
 /* Basic reset for full-screen display */
 body, html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow: hidden; /* Prevent scrolling */
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Allow vertical scrolling */
 }
 
 /* Fixed Top Elements for Logo and Button */
@@ -19,13 +18,13 @@ body, html {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color:*/ rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
     z-index: 1000;
     box-sizing: border-box;
 }
 
 .logo img {
-    width: 80px;
+    width: 80px; /* Adjust size as needed */
 }
 
 .navigation {
@@ -35,31 +34,34 @@ body, html {
 
 .nav-icon {
     display: block;
-    width: 18px;
+    width: 18px; /* Adjust size to fit within margins */
     height: 18px;
     text-decoration: none;
-    margin-left: auto;
-    margin-right: 10px;
+    margin-left: auto; /* Align icon to the right edge */
+    margin-right: 10px; /* Add margin to the right for spacing */
 }
 
 .nav-icon img {
     width: 100%;
     height: auto;
 }
+
 /* Main content styling for full-page image */
 .main-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
     width: 100%;
-    height: 100vh; /* Full height to fill screen */
-    box-sizing: border-box;
-    overflow: hidden;
+    height: auto; /* Height should be auto to allow content to flow */
+    box-sizing: border-box; /* Include padding and border in width calculation */
+    overflow: visible; /* Allow content to overflow for scrolling */
 }
 
-/* 360 Product View styling for the image */
+/* 360 Product View styling for full-screen image */
 .product-view-container {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -67,26 +69,11 @@ body, html {
     overflow: hidden;
 }
 
-/* Image styling for portrait mode to enlarge the image */
-@media only screen and (orientation: portrait) and (max-width: 768px) {
-    .product-view-container {
-        width: 100vw; /* Full width of the viewport */
-        height: auto; /* Height will adjust automatically to keep the aspect ratio */
-        max-height: 100vh; /* Ensure container does not exceed viewport height */
-    }
-
-    .product-view-container img {
-        width: 100%; /* Make the image fill the width of the container */
-        height: auto; /* Maintain aspect ratio */
-        max-height: 100vh; /* Ensure image does not exceed viewport height */
-        object-fit: contain; /* Ensures image scales without cropping */
-    }
-}
 .product-view-container img {
-    max-width: 100%; /* Ensure the image doesn't overflow */
-    height: auto;
-    object-fit: cover;
-    user-select: none;
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    object-fit: cover; /* Cover entire container while maintaining aspect ratio */
+    user-select: none; /* Prevent image selection during drag */
 }
 
 /* Slider styling - positioned at the bottom center above the image */
@@ -108,62 +95,33 @@ body, html {
     border-radius: 5px; /* Rounded corners */
 }
 
-/* Navigation arrows */
-.nav-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 2em;
-    color: black;
-    background-color:  /* rgba(0, 0, 0, 0.5)*/ ; /* Semi-transparent background */
-    padding: 10px;
-    cursor: pointer;
-    z-index: 1002; /* Above the 3D content */
-    border-radius: 50%;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Text description styling */
+.description-container {
+    width: 90%;
+    max-width: 600px;
+    margin: 20px auto; /* Center the description container */
+    color: #000; /* Black text color */
+    padding: 20px;
+    font-size: 14px; /* Default font size */
+    font-weight: normal;
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
+    border-radius: 8px; /* Rounded corners */
+    text-align: left;
+    line-height: 1.6; /* Line height for readability */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    z-index: 1001; /* Ensure the description is above the image */
+    margin-top: 20px; /* Add spacing from the image */
 }
 
-.nav-arrow.left {
-    left: 10px; /* Adjusted positioning */
+/* Responsive text size adjustments */
+@media (min-width: 768px) {
+    .description-container {
+        font-size: 16px; /* Larger font size for tablets and desktops */
+    }
 }
 
-.nav-arrow.right {
-    right: 10px; /* Adjusted positioning */
-}
-
-.nav-arrow:hover {
-    background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
-}
-
-/* Remove hover effects for buttons */
-button:hover {
-    outline: none;
-    box-shadow: none;
-    background-color: inherit; /* Keep the original background color */
-}
-
-/* Specific style for your navigation arrows and hotspot button */
-.nav-arrow:hover, .info-hotspot:hover {
-    outline: none;
-    box-shadow: none;
-    background-color: inherit; /* Keep the original background color */
-    color: inherit; /* Keep the original text color */
-}
-
-/* CSS to display rotation icon above content in portrait mode for mobiles */
-@media only screen and (orientation: portrait) and (max-width: 768px) {
-    .rotation-icon {
-        display: block; /* Ensure the rotation icon is visible */
-        width: 18px; /* Width scales with viewport width */
-        height: 18px; /* Maintain aspect ratio */
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        z-index: 1003; /* Ensure it is on top of all other content */
-        pointer-events: none; /* Allow clicks to pass through to underlying content */
+@media (min-width: 992px) {
+    .description-container {
+        font-size: 18px; /* Even larger font size for larger screens */
     }
 }
