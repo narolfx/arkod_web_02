@@ -2,30 +2,34 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>360 Product View - Post 2</title>
+    <meta name="viewport" content="width=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>360 Product View - Post 1</title>
     <link rel="stylesheet" href="css/post-page.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="js/360viewer.js"></script>
 </head>
+
 <body>
     <!-- Logo and Home Button (Fixed at the Top) -->
     <div class="fixed-top">
-        <div class="logo">
-            <!-- Updated image path -->
+    <div class="logo">
+        <!-- Make the logo clickable -->
+        <a href="about.html">
             <img src="assets/icons/logo.png" alt="Logo">
-        </div>
-        <nav class="navigation">
-            <a href="index.html" class="nav-icon">
-                <img src="assets/icons/home-icon.png" alt="Home Icon">
-            </a>
-        </nav>
+        </a>
     </div>
+    <nav class="navigation">
+        <a href="index.html" class="nav-icon">
+            <img src="assets/icons/home-icon.png" alt="Home Icon">
+        </a>
+    </nav>
+</div>
+
 
     <!-- Main Content for 360 Product View -->
     <main class="main-content">
         <div class="product-view-container">
-            <div id="viewer-images-2" class="viewer-images"></div> <!-- Container for 360 images --> ` 
+            <div id="viewer-images-1" class="viewer-images"></div> <!-- Container for 360 images -->
             <div class="slider-container">
                 <input type="range" class="rotation-slider" min="0" max="60" value="0">
             </div>
