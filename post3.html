@@ -6,53 +6,99 @@
     <title>360 Product View - Post 3</title>
     <link rel="stylesheet" href="css/post-page.css">
     <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/responsive-styles.css"> <!-- Link to the new CSS file -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="js/imageLoader.js"></script>
     <script src="js/navigation.js"></script>
     <script src="js/touchAndMouse.js"></script>
     <script src="js/popup.js"></script>
+    <script src="js/imageLoader.js"></script> <!-- Include the image loader script -->
+    <script src="js/sliderPosition.js"></script> <!-- Include the new JavaScript file -->
+    
+    <!-- Add the CSS for the rotation icon -->
+    <style>
+        .rotation-icon {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.7); /* Semi-transparent background */
+            padding: 10px;
+            border-radius: 50%;
+            z-index: 9999; /* Ensure it's above other content */
+            text-align: center;
+        }
+        .rotation-icon img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+        }
+    </style>
 </head>
 <body>
-  
-        <!-- Logo and Home Button (Fixed at the Top) -->
-        <div class="fixed-top">
-            <div class="logo">
-                <a href="about.html">
-                    <img src="assets/icons/logo.png" alt="Logo">
-                </a>
-            </div>
-            <nav class="navigation">
-                <a href="index.html" class="nav-icon">
-                    <img src="assets/icons/home-icon.png" alt="Home Icon">
-                </a>
-            </nav>
-        </div>
 
-        <!-- 3D Product View Container -->
-        <main class="main-content">
-            <div class="product-view-container" id="viewer-images-3"></div>
-            <div class="slider-container">
-                <input type="range" class="rotation-slider" min="0" max="60" value="0">
-            </div>
-
-            <!-- Hotspot Button for Information Popup -->
-            <button id="info-hotspot" class="info-hotspot">i</button>
-
-            <!-- Navigation Arrows for switching between projects -->
-            <div class="nav-arrow left" id="nav-left">&#8249;</div>
-            <div class="nav-arrow right" id="nav-right">&#8250;</div>
-        </main>
+    <!-- Rotation Icon for Mobile in Portrait Mode -->
+    <div id="rotation-icon" class="rotation-icon" style="display: none;">
+        <img src="assets/icons/rotate-icon.png" alt="Rotate Icon">
     </div>
+
+    <!-- Logo and Home Button (Fixed at the Top) -->
+    <div class="fixed-top">
+        <div class="logo">
+            <a href="about.html">
+                <img src="assets/icons/logo.png" alt="Logo">
+            </a>
+        </div>
+        <nav class="navigation">
+            <a href="index.html" class="nav-icon">
+                <img src="assets/icons/home-icon.png" alt="Home Icon">
+            </a>
+        </nav>
+    </div>
+
+    <!-- 3D Product View Container -->
+    <main class="main-content">
+        <div class="product-view-container" id="viewer-images-3"></div>
+        <div class="slider-container">
+            <input type="range" class="rotation-slider" min="0" max="60" value="0">
+        </div>
+    </main>
 
     <!-- Modal/Popup for Project Information -->
     <div id="info-popup" class="info-popup">
         <div class="popup-content">
             <span class="close-popup">&times;</span>
             <div class="description-container">
-                <p>Project name<br><strong>Project 3 Name</strong></p>
-                <p>Typology<br><strong>Commercial</strong></p>
-                <p>Location<br><strong>Business District</strong></p>
-                <p>Year<br><strong>2025</strong></p>
-                <p>Status<br><strong>Ongoing</strong></p>
-                <p>Size<br>
+                <p>Project name<br><strong>Project 2 Name</strong></p>
+                <p>Typology<br><strong>Residential</strong></p>
+                <p>Location<br><strong>Someplace Park</strong></p>
+                <p>Year<br><strong>2023</strong></p>
+                <p>Status<br><strong>Completed</strong></p>
+                <p>Size<br><strong>300 m²</strong></p>
+                <p>Client<br><strong>Some Client</strong></p>
+                <p>Design team<br><strong>Another Design Team</strong></p>
+                <p>Collaborators<br><strong>Other Collaborators</strong></p>
+            </div>
+        </div> <!-- Closing popup-content -->
+    </div> <!-- Closing info-popup -->
+
+    <!-- JavaScript to Detect Orientation and Show/Hide the Rotation Icon -->
+    <script>
+        function checkOrientation() {
+            const rotationIcon = document.getElementById('rotation-icon');
+            if (window.innerHeight > window.innerWidth) {
+                // Portrait mode
+                rotationIcon.style.display = 'block';
+            } else {
+                // Landscape mode
+                rotationIcon.style.display = 'none';
+            }
+        }
+
+        // Check on load
+        window.addEventListener('load', checkOrientation);
+        // Check on resize/orientation change
+        window.addEventListener('resize', checkOrientation);
+        window.addEventListener('orientationchange', checkOrientation);
+    </script>
+</body>
+</html>
