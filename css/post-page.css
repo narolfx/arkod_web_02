@@ -18,7 +18,7 @@ body, html {
     width: 100%;
     top: 0;
     left: 0;
-    background-color:*/ rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    background-color: /* rgba(255, 255, 255, 0.9)*/   ;  /* Semi-transparent white background */
     z-index: 1000;
     box-sizing: border-box;
 }
@@ -125,10 +125,36 @@ body, html {
         font-size: 18px; /* Even larger font size for larger screens */
     }
 }
-/* Force landscape styling on mobile devices */
+
+/* Ensure square aspect ratio for images in portrait mode on mobile devices */
+@media only screen and (max-width: 768px) and (orientation: portrait) {
+    .product-view-container {
+        width: 100vw; /* Full viewport width */
+        height: 100vw; /* Equal to the width, creating a square */
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+    }
+
+    .product-view-container img {
+        width: 100%; /* Full width of the container */
+        height: 100%; /* Full height of the container, maintaining a square aspect ratio */
+        object-fit: cover; /* Cover the container while maintaining aspect ratio */
+    }
+
+    .description-container {
+        width: 90%;
+        margin: 10px auto;
+        text-align: center;
+    }
+}
+
+/* Styling for landscape mode and larger screens remains unchanged */
 @media only screen and (max-width: 768px) and (orientation: landscape) {
     .main-content {
-        flex-direction: row; /* Adjust the layout direction */
+        flex-direction: row; /* Keep content side by side in landscape */
         justify-content: space-around; /* Add spacing between elements */
     }
 
@@ -142,4 +168,3 @@ body, html {
         height: auto; /* Maintain aspect ratio */
     }
 }
-
