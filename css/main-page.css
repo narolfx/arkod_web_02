@@ -24,7 +24,7 @@ body, html {
 }
 
 .logo img {
-    width: 100px; /* Adjust size as needed */
+    width: 80px; /* Adjust size as needed */
 }
 
 .navigation {
@@ -34,8 +34,8 @@ body, html {
 
 .nav-icon {
     display: block;
-    width: 24px; /* Adjust size to fit within margins */
-    height: 24px;
+    width: 18px; /* Adjust size to fit within margins */
+    height: 18px;
     text-decoration: none;
     margin-left: auto; /* Align icon to the right edge */
     margin-right: 10px; /* Add margin to the right for spacing */

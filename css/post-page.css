@@ -6,7 +6,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    overflow:  ; /* Prevent scrolling */
+    overflow: hidden; /* Prevent scrolling */
 }
 
 /* Fixed Top Elements for Logo and Button */
@@ -19,13 +19,13 @@ body, html {
     width: 100%;
     top: 0;
     left: 0;
-    background-color: /* rgba(255, 255, 255, 0.8) */;
+    background-color: rgba(255, 255, 255, 0.8);
     z-index: 1000;
     box-sizing: border-box;
 }
 
 .logo img {
-    width: 100px;
+    width: 80px;
 }
 
 .navigation {
@@ -35,8 +35,8 @@ body, html {
 
 .nav-icon {
     display: block;
-    width: 24px;
-    height: 24px;
+    width: 18px;
+    height: 18px;
     text-decoration: none;
     margin-left: auto;
     margin-right: 10px;
@@ -46,7 +46,6 @@ body, html {
     width: 100%;
     height: auto;
 }
-
 /* Main content styling for full-page image */
 .main-content {
     display: flex;
@@ -59,10 +58,8 @@ body, html {
     overflow: hidden;
 }
 
-/* 360 Product View styling for full-screen image */
+/* 360 Product View styling for the image */
 .product-view-container {
-    width: 100%;
-    height: auto; /* Adjust to maintain aspect ratio */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -70,6 +67,21 @@ body, html {
     overflow: hidden;
 }
 
+/* Image styling for portrait mode to enlarge the image */
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+    .product-view-container {
+        width: 100vw; /* Full width of the viewport */
+        height: auto; /* Height will adjust automatically to keep the aspect ratio */
+        max-height: 100vh; /* Ensure container does not exceed viewport height */
+    }
+
+    .product-view-container img {
+        width: 100%; /* Make the image fill the width of the container */
+        height: auto; /* Maintain aspect ratio */
+        max-height: 100vh; /* Ensure image does not exceed viewport height */
+        object-fit: contain; /* Ensures image scales without cropping */
+    }
+}
 .product-view-container img {
     max-width: 100%; /* Ensure the image doesn't overflow */
     height: auto;
@@ -103,7 +115,7 @@ body, html {
     transform: translateY(-50%);
     font-size: 2em;
     color: black;
-    background-color: /* rgba(0, 0, 0, 0.5)*/; /* Semi-transparent background */
+    background-color:  /* rgba(0, 0, 0, 0.5)*/ ; /* Semi-transparent background */
     padding: 10px;
     cursor: pointer;
     z-index: 1002; /* Above the 3D content */
@@ -126,8 +138,6 @@ body, html {
     background-color: rgba(0, 0, 0, 0.8); /* Darker background on hover */
 }
 
-/* --- New CSS to Remove Hover Highlights --- */
-
 /* Remove hover effects for buttons */
 button:hover {
     outline: none;
@@ -143,4 +153,17 @@ button:hover {
     color: inherit; /* Keep the original text color */
 }
 
-/* --- End of New CSS to Remove Hover Highlights --- */
+/* CSS to display rotation icon above content in portrait mode for mobiles */
+@media only screen and (orientation: portrait) and (max-width: 768px) {
+    .rotation-icon {
+        display: block; /* Ensure the rotation icon is visible */
+        width: 18px; /* Width scales with viewport width */
+        height: 18px; /* Maintain aspect ratio */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1003; /* Ensure it is on top of all other content */
+        pointer-events: none; /* Allow clicks to pass through to underlying content */
+    }
+}
