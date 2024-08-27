@@ -1,65 +1,95 @@
-/* Popup modal styles */
-.info-popup {
-    display: none; /* Hidden by default */
-    position: fixed;
-    z-index: 2000; /* On top of all other content */
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
-    justify-content: center;
-    align-items: center;
-}
+/* New Model for Pop-Up and Info Hotspot Button */
+/* Place this at the bottom of your CSS file */
 
-/* Popup content styles */
-.popup-content {
-    background-color: #fff;
-    margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
-    max-width: 500px;
-    border-radius: 8px;
-    position: relative;
-}
-
-/* Close button styles */
-.close-popup {
-    position: absolute;
-    top: 10px;
-    right: 15px;
-    color: #aaa;
-    font-size: 28px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.close-popup:hover,
-.close-popup:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Hotspot button styles */
+/* Styles for the Information Hotspot Button */
 .info-hotspot {
     position: absolute;
-    bottom: 30px;
-    right: 30px;
-    background-color: #008CBA; /* Blue background */
-    border: none;
-    color: white;
-    padding: 10px 15px;
+    bottom: 30px; /* Adjust the position as needed */
+    right: 30px;  /* Adjust the position as needed */
+    background-color: transparent; /* Transparent background color */
+    border: 2px solid black; /* Circular border around the icon */
+    color: black; /* Text color set to black */
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 20px;
-    border-radius: 50%;
+    border-radius: 50%; /* Makes the button circular */
     cursor: pointer;
     z-index: 1500;
+    width: 50px; /* Set initial width */
+    height: 50px; /* Set initial height */
+    line-height: 45px; /* Center the icon vertically */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Smooth transition effect */
 }
 
-.info-hotspot:hover {
-    background-color: #005f73; /* Darker blue on hover */
+/* Remove any default highlight or outline effect when hovered */
+.info-hotspot:hover, .info-hotspot:focus, .info-hotspot:active {
+    background-color: transparent; /* Maintain transparent background on hover */
+    color: black; /* Icon color remains black on hover */
+    outline: none; /* Remove focus outline */
+    box-shadow: none; /* Remove any shadow */
+    border-color: black; /* Keep border color black on hover */
+}
+
+/* Styles for the Information Pop-Up Window */
+.info-popup {
+    display: none; /* Ensure it is hidden by default to prevent it from appearing on page load */
+    position: fixed;
+    z-index: 2000; /* On top of all other content */
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    transform: translate(-50%, -50%); /* Adjust the position to the exact center */
+    background-color: /* rgba(0, 0, 0, 0.7) */ ; /* Black background with opacity */
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Allow content to define width */
+    height: auto; /* Allow content to define height */
+    overflow-y: auto; /* Allow scrolling if content is too large */
+     
+}
+
+/* Popup content styles */
+.popup-content {
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px; /* Maximum width for larger screens */
+    border-radius: 8px;
+    position: relative;
+    box-sizing: border-box;
+    margin: auto; /* Automatically center within the flex container */
+}
+
+/* Responsive adjustments for different screen sizes */
+@media (max-width: 768px) {
+    .info-hotspot {
+        width: 40px; /* Adjust width for tablets and smaller screens */
+        height: 40px; /* Adjust height for tablets and smaller screens */
+        line-height: 35px; /* Adjust line height to center the icon */
+        font-size: 18px; /* Smaller font size for smaller screens */
+        bottom: 20px; /* Adjust bottom position */
+        right: 20px; /* Adjust right position */
+    }
+
+    .popup-content {
+        width: 90%; /* Adjust width for smaller screens */
+        padding: 15px; /* Adjust padding for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .info-hotspot {
+        width: 30px; /* Further adjust width for small screens */
+        height: 30px; /* Further adjust height for small screens */
+        line-height: 28px; /* Further adjust line height to center the icon */
+        font-size: 16px; /* Smaller font size for small screens */
+        bottom: 15px; /* Further adjust bottom position */
+        right: 15px; /* Further adjust right position */
+    }
+
+    .popup-content {
+        width: 95%; /* Further adjust width for smaller screens */
+        padding: 10px; /* Further adjust padding for smaller screens */
+    }
 }
