@@ -65,9 +65,11 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
+    position: relative; /* Set relative to position the slider absolutely inside it */
     overflow: hidden;
 }
+
+
 
 .product-view-container img {
     width: 100vw; /* Full width of the viewport */
@@ -78,21 +80,36 @@ body, html {
 
 /* Slider styling - positioned at the bottom center above the image */
 .slider-container {
-    width: 200px; /* Smaller width for the slider */
-    position: absolute;
-    bottom: 20px; /* Position above the bottom of the container */
-    left: 50%;
-    transform: translateX(-50%);
+    width: 200px; /* Set a fixed width for the slider */
+    position: absolute; /* Position the slider absolutely within the container */
+    bottom: 20px; /* Keep the slider at the bottom of the container */
+    left: 50%; /* Center the slider horizontally */
+    transform: translateX(-50%); /* Adjust position to be perfectly centered */
     display: flex;
     justify-content: center;
     z-index: 1001; /* Ensure the slider is above the image */
+    background: /* rgba(255, 255, 255, 0.8)*/; /* Semi-transparent background for visibility */
+    border-radius: 5px; /* Rounded corners */
+    padding: 5px; /* Add some padding for better touch area */
 }
 
 .rotation-slider {
     width: 100%; /* Full width of the slider container */
     cursor: pointer;
-    background: rgba(255, 255, 255, 0.8); /* Semi-transparent background for visibility */
     border-radius: 5px; /* Rounded corners */
+}
+
+/* Responsive adjustments if necessary */
+@media (max-width: 768px) {
+    .slider-container {
+        width: 150px; /* Adjust width for smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .slider-container {
+        width: 120px; /* Further adjust width for very small screens */
+    }
 }
 
 /* Text description styling */
