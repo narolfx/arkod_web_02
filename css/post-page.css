@@ -105,7 +105,7 @@ body, html {
     @media (orientation: landscape) {
         .slider-container {
             width: 150px; /* Ensure slider width is appropriate in landscape */
-            bottom: 0.5%; /* Adjust as needed for landscape view */
+            bottom: -15px%; /* Adjust as needed for landscape view */
         }
     }
 
