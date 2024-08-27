@@ -78,7 +78,7 @@ body, html {
     user-select: none; /* Prevent image selection during drag */
 }
 
-/* Slider styling - position controlled dynamically by JavaScript */
+/* Slider styling - Default for Desktop */
 .slider-container {
     width: 200px; /* Set a fixed width for the slider */
     position: absolute; /* Position the slider absolutely within the container */
@@ -87,45 +87,51 @@ body, html {
     display: flex;
     justify-content: center;
     z-index: 1001; /* Ensure the slider is above the image */
-    background:/* rgba(255, 255, 255, 0.8)*/; /* Semi-transparent background for visibility */
+    background: /* rgba(255, 255, 255, 0.8)*/; /* Semi-transparent background for visibility */
     border-radius: 5px; /* Rounded corners */
     padding: 5px; /* Add some padding for better touch area */
-    bottom: 2%; /* Default to bottom, overridden by JavaScript */
+    bottom: 2.5%; /* Default bottom position for desktop */
 }
 
-.rotation-slider {
-    width: 100%; /* Full width of the slider container */
-    cursor: pointer;
-    border-radius: 5px; /* Rounded corners */
-}
-
-/* Responsive adjustments if necessary */
+/* Mobile Styles: Apply styles for devices with max width 768px */
 @media (max-width: 768px) {
+    /* Adjust slider width for smaller screens */
     .slider-container {
-        width: 150px; /* Adjust width for smaller screens */
+        width: 150px; /* Adjust width for mobile devices */
+        bottom: 5%; /* Position closer to the bottom */
     }
-}
 
-@media (max-width: 480px) {
-    .slider-container {
-        width: 120px; /* Further adjust width for very small screens */
+    /* Mobile landscape specific styles */
+    @media (orientation: landscape) {
+        .slider-container {
+            width: 150px; /* Ensure slider width is appropriate in landscape */
+            bottom: 2.5%; /* Adjust as needed for landscape view */
+        }
+    }
+
+    /* Mobile portrait specific styles */
+    @media (orientation: portrait) {
+        .slider-container {
+            width: 120px; /* Ensure slider width is appropriate in portrait */
+            bottom: 25%; /* Adjust as needed for portrait view */
+        }
     }
 }
 
 /* Text description styling */
 .description-container {
-    width: 90%;
+    width: 100%;
     max-width: 600px;
-    margin: 20px auto; /* Center the description container */
+    margin: 10px auto; /* Center the description container */
     color: #000; /* Black text color */
-    padding: 20px;
+    padding: 10px;
     font-size: 14px; /* Default font size */
     font-weight: normal;
     background-color: rgba(255, 255, 255, 0.9); /* Light background for readability */
     border-radius: 8px; /* Rounded corners */
     text-align: left;
     line-height: 1.6; /* Line height for readability */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+     
     z-index: 1001; /* Ensure the description is above the image */
     margin-top: 20px; /* Add spacing from the image */
 }
